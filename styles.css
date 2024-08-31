@@ -1,148 +1,193 @@
-/* General body styling */
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
+/* General styles */
+body, html {
     margin: 0;
     padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-}
-
-/* Container styling */
-.container {
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    max-width: 100%;
-    width: 600px;
-    text-align: center;
-}
-
-/* Heading styling */
-h1 {
-    margin-bottom: 10px;
+    font-family: Arial, sans-serif;
+    background-color: #f0f8ff;
     color: #333;
+    overflow-x: hidden;
 }
 
-/* Paragraph styling */
-p {
-    margin-bottom: 20px;
-    color: #777;
+/* Header styling */
+header {
+    background-color: #87CEEB;
+    color: rgb(8, 6, 6);
+    padding: 20px;
+    text-align: center;
+    font-size: 24px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Floating scale */
+#floatingScale {
+    background-color: #0e0808;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    font-size: 14px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Main section */
+main {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 /* Upload section styling */
-.upload-section {
-    padding: 20px;
-    border: 2px dashed #ddd;
+#uploadSection {
+    width: 100%;
+    max-width: 600px;
+    height: 300px; /* Increased height */
+    border: 2px dashed #87CEEB;
     border-radius: 8px;
+    padding: 40px;
+    text-align: center;
+    background-color: #e0f7ff;
     margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     position: relative;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
 }
 
-.upload-section:hover {
-    background-color: #f0f0f0;
+#uploadSection label {
+    display: block;
+    color: #555;
+    font-size: 16px;
 }
 
-/* Input file styling */
-.upload-section input[type="file"] {
+#imageInput {
+    opacity: 0;
     position: absolute;
     width: 100%;
     height: 100%;
-    opacity: 0;
+    top: 0;
+    left: 0;
     cursor: pointer;
 }
 
-/* Image preview styling */
-.image-preview {
+/* Image preview container */
+#imagePreview {
+    width: 100%;
+    max-width: 600px;
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
     gap: 10px;
     margin-bottom: 20px;
+    justify-content: center;
 }
 
-.image-preview .image-container {
+.image-container {
     position: relative;
-    display: inline-block;
-    max-width: 100px;
-    max-height: 100px;
-    border: 2px solid #ddd;
-    border-radius: 5px;
-    overflow: hidden;
+    border: 2px solid #87CEEB;
+    border-radius: 8px;
+    padding: 5px;
+    background-color: white;
+    text-align: center;
 }
 
-.image-preview img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 5px;
+.image-container img {
+    width: 100px;
+    height: auto;
+    display: block;
+    border-radius: 8px;
 }
 
-/* Round remove button styling */
-.image-preview .remove-btn {
+.image-number {
     position: absolute;
-    top: -10px;
-    right: -10px;
-    background-color: #ff5c5c;
+    top: 5px;
+    left: 5px;
+    background-color: #87CEEB;
+    color: white;
+    padding: 2px 6px;
+    border-radius: 12px;
+    font-size: 12px;
+}
+
+.remove-btn {
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+    background-color: red;
     color: white;
     border: none;
-    border-radius: 50%;
+    border-radius: 5px;
+    padding: 5px;
     cursor: pointer;
     font-size: 14px;
-    width: 25px;
-    height: 25px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-    transition: transform 0.2s ease, background-color 0.2s ease;
-    z-index: 10;
 }
 
-.image-preview .remove-btn:hover {
-    background-color: #ff3333;
-    transform: scale(1.1);
-}
-
-button {
-    background-color: #007bff;
-    color: #fff;
+/* Convert button */
+#convertBtn {
+    background-color: #87CEEB;
+    color: white;
+    padding: 10px 20px;
     border: none;
-    padding: 10px 15px;
-    border-radius: 5px;
+    border-radius: 8px;
     cursor: pointer;
-    width: 100%;
+    font-size: 16px;
 }
 
-button:hover {
-    background-color: #0056b3;
+#convertBtn:hover {
+    background-color: #00bfff;
 }
 
-/* Mobile view adjustments */
-@media (max-width: 600px) {
-    .container {
+/* Footer styling */
+footer {
+    background-color: #87CEEB;
+    color: rgb(10, 6, 6);
+    padding: 20px;
+    text-align: center;
+    margin-top: 20px;
+    box-shadow: 0px -4px 6px rgba(0, 0, 0, 0.1);
+}
+
+footer a {
+    color: rgb(248, 0, 95);
+    text-decoration: underline;
+}
+
+footer a:hover {
+    color: #020b0e;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    main {
         padding: 10px;
     }
 
-    h1 {
-        font-size: 1.5rem;
+    #uploadSection {
+        padding: 20px;
+        height: 250px; /* Adjusted height for mobile view */
     }
 
-    button {
-        padding: 10px;
+    #imagePreview {
+        justify-content: center;
     }
 
-    .image-preview .image-container {
-        max-width: 80px;
-        max-height: 80px;
+    .image-container img {
+        width: 80px;
     }
 
-    .upload-section p {
-        font-size: 0.9rem;
+    #convertBtn {
+        width: 100%;
+        max-width: 300px;
+    }
+
+    header, footer {
+        padding: 15px;
+        font-size: 20px;
+    }
+
+    #floatingScale {
+        font-size: 12px;
+        padding: 8px;
     }
 }
