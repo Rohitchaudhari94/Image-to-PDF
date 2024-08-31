@@ -69,7 +69,7 @@ function handleFiles(files) {
     });
 }
 
-// Convert images to PDF
+// Convert images to PDF with proper fitting
 convertBtn.addEventListener('click', function() {
     if (images.length === 0) {
         alert("Please select at least one image file.");
@@ -78,6 +78,7 @@ convertBtn.addEventListener('click', function() {
 
     const { jsPDF } = window.jspdf;
     const pdf = new jsPDF();
+    let imageCount = 0;
 
     images.forEach((file, index) => {
         const reader = new FileReader();
@@ -85,11 +86,27 @@ convertBtn.addEventListener('click', function() {
             const img = new Image();
             img.src = event.target.result;
             img.onload = function() {
+                const imgWidth = img.width;
+                const imgHeight = img.height;
+                const pdfWidth = pdf.internal.pageSize.getWidth();
+                const pdfHeight = pdf.internal.pageSize.getHeight();
+                
+                // Calculate the scaling factor to fit the image within the page
+                const scaleFactor = Math.min(pdfWidth / imgWidth, pdfHeight / imgHeight);
+                const scaledWidth = imgWidth * scaleFactor;
+                const scaledHeight = imgHeight * scaleFactor;
+
                 if (index > 0) {
                     pdf.addPage();
                 }
-                pdf.addImage(img, 'JPEG', 10, 10, 180, 160);
-                if (index === images.length - 1) {
+                
+                // Center the image on the page
+                const xOffset = (pdfWidth - scaledWidth) / 2;
+                const yOffset = (pdfHeight - scaledHeight) / 2;
+                pdf.addImage(img, 'JPEG', xOffset, yOffset, scaledWidth, scaledHeight);
+                
+                imageCount++;
+                if (imageCount === images.length) {
                     pdf.save('images.pdf');
                 }
             };
