@@ -69,7 +69,7 @@ function handleFiles(files) {
     });
 }
 
-// Convert images to PDF without resizing or compressing
+// Convert images to PDF
 convertBtn.addEventListener('click', function() {
     if (images.length === 0) {
         alert("Please select at least one image file.");
@@ -85,17 +85,10 @@ convertBtn.addEventListener('click', function() {
             const img = new Image();
             img.src = event.target.result;
             img.onload = function() {
-                const width = img.width;
-                const height = img.height;
-
                 if (index > 0) {
-                    pdf.addPage([width, height]);
-                } else {
-                    pdf.setPage(1);
-                    pdf.setPageSize([width, height]);
+                    pdf.addPage();
                 }
-                pdf.addImage(img, 'JPEG', 0, 0, width, height);
-
+                pdf.addImage(img, 'JPEG', 10, 10, 180, 160);
                 if (index === images.length - 1) {
                     pdf.save('images.pdf');
                 }
