@@ -3,20 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Image to PDF Converter - Rohit Chaudhari</title>
+    <title>Create Your PDF</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="container">
-        <h1>Image to PDF Converter</h1>
-        <p>Created by Rohit Chaudhari</p>
-        <div class="upload-section" id="uploadSection">
-            <input type="file" id="imageInput" accept="image/*">
-            <p>or drag and drop an image here</p>
-        </div>
-        <div id="imagePreview" class="image-preview"></div>
-        <button id="convertBtn">Convert to PDF</button>
+    <header>
+        <h1>Create Your PDF</h1>
+    </header>
+
+    <!-- Floating scale -->
+    <div id="floatingScale">
+        This website created by Rohit Chaudhari
     </div>
+
+    <main>
+        <div id="uploadSection">
+            <label for="imageInput">Drag & drop your images here or click to select files</label>
+            <input type="file" id="imageInput" accept="image/*" multiple>
+        </div>
+        <div id="imagePreview"></div>
+        <button id="convertBtn">Convert to PDF</button>
+    </main>
+
+    <footer>
+        <p>If you find any issues, message me on <a href="https://www.instagram.com/rohit.chaudhari.94?igsh=MW10NXVucmVnamxxZQ==" target="_blank">Instagram</a></p>
+    </footer>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.14.0/Sortable.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     <script src="script.js"></script>
