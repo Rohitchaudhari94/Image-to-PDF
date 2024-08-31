@@ -39,14 +39,21 @@ function handleFiles(files) {
             const imageContainer = document.createElement('div');
             imageContainer.classList.add('image-container');
             
+            // Create image number label
+            const imageNumber = document.createElement('div');
+            imageNumber.classList.add('image-number');
+            imageNumber.textContent = `Image ${images.length + 1}`;
+
             const removeBtn = document.createElement('button');
             removeBtn.innerHTML = '&times;';
             removeBtn.classList.add('remove-btn');
             removeBtn.addEventListener('click', () => {
                 imagePreview.removeChild(imageContainer);
                 images = images.filter((_, i) => i !== index);
+                updateImageNumbers();
             });
 
+            imageContainer.appendChild(imageNumber); // Append image number label
             imageContainer.appendChild(imgElement);
             imageContainer.appendChild(removeBtn);
             imagePreview.appendChild(imageContainer);
@@ -54,6 +61,9 @@ function handleFiles(files) {
         };
         reader.readAsDataURL(file);
     });
+
+    // Update image numbers after rearranging or removing images
+    updateImageNumbers();
 
     // Make the images sortable
     Sortable.create(imagePreview, {
@@ -65,7 +75,17 @@ function handleFiles(files) {
                 const movedItem = images.splice(oldIndex, 1)[0];
                 images.splice(newIndex, 0, movedItem);
             }
+            updateImageNumbers();
         }
+    });
+}
+
+// Update image numbers after rearranging or removing images
+function updateImageNumbers() {
+    const imageContainers = document.querySelectorAll('.image-container');
+    imageContainers.forEach((container, index) => {
+        const imageNumber = container.querySelector('.image-number');
+        imageNumber.textContent = `Image ${index + 1}`;
     });
 }
 
