@@ -104,10 +104,10 @@ main {
     top: 5px;
     left: 5px;
     background-color: #87CEEB;
-    color: white;
+    color: rgb(0, 0, 0);
     padding: 2px 6px;
     border-radius: 12px;
-    font-size: 12px;
+    font-size: 12px;s
 }
 
 .remove-btn {
