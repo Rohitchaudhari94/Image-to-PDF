@@ -1,0 +1,148 @@
+/* General body styling */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* Container styling */
+.container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 100%;
+    width: 600px;
+    text-align: center;
+}
+
+/* Heading styling */
+h1 {
+    margin-bottom: 10px;
+    color: #333;
+}
+
+/* Paragraph styling */
+p {
+    margin-bottom: 20px;
+    color: #777;
+}
+
+/* Upload section styling */
+.upload-section {
+    padding: 20px;
+    border: 2px dashed #ddd;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    position: relative;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.upload-section:hover {
+    background-color: #f0f0f0;
+}
+
+/* Input file styling */
+.upload-section input[type="file"] {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+}
+
+/* Image preview styling */
+.image-preview {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.image-preview .image-container {
+    position: relative;
+    display: inline-block;
+    max-width: 100px;
+    max-height: 100px;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.image-preview img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+/* Round remove button styling */
+.image-preview .remove-btn {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    background-color: #ff5c5c;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 14px;
+    width: 25px;
+    height: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s ease, background-color 0.2s ease;
+    z-index: 10;
+}
+
+.image-preview .remove-btn:hover {
+    background-color: #ff3333;
+    transform: scale(1.1);
+}
+
+button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* Mobile view adjustments */
+@media (max-width: 600px) {
+    .container {
+        padding: 10px;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    button {
+        padding: 10px;
+    }
+
+    .image-preview .image-container {
+        max-width: 80px;
+        max-height: 80px;
+    }
+
+    .upload-section p {
+        font-size: 0.9rem;
+    }
+}
